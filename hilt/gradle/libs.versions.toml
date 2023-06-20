@@ -1,0 +1,47 @@
+[versions]
+ktx = "1.8.0"
+composeBom = "2022.10.00"
+lifecycle = "2.4.0"
+kotlinBom = "1.8.0"
+activity = "1.5.1"
+testExt = "1.1.5"
+testEspresso = "3.5.1"
+junit = "4.13.2"
+serialization = "1.5.1"
+retrofitSerializationConverter = "1.0.0"
+retrofit = "2.9.0"
+okhttp = "4.11.0"
+dagger = "2.46.1"
+hilt = "2.46.1"
+androidxHilt = "1.0.0"
+
+[libraries]
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
+
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4"}
+androidx-test-ext = { group = "androidx.test.ext", name = "junit", version.ref = "testExt"}
+androidx-text-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "testEspresso"}
+junit = { group = "junit", name = "junit", version.ref = "junit"}
+
+org-jetbrains-kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlinBom"}
+
+kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization"}
+retrofit-kotlinx-serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitSerializationConverter" }
+
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okhttp"}
+
+dagger = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger"}
+hilt = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt"}
+androidx-hilt = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHilt"}
+
+[plugins]
