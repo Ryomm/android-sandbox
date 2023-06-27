@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.hiltandmultimodule.ui.theme.HiltAndMultimoduleTheme
+import com.example.hiltandmultimodule.ui.theme.MainApp
 import com.example.hiltandmultimodule.ui.theme.screens.articles.ArticlesContainer
 import com.example.hiltandmultimodule.ui.theme.screens.articles.ArticlesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,8 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel =hiltViewModel< ArticlesViewModel>()
-                    ArticlesContainer(viewModel)
+                    MainApp()
                 }
             }
         }

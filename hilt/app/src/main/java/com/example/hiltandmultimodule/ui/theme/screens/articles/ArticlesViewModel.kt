@@ -16,8 +16,7 @@ import javax.inject.Inject
 // viewModel
 @HiltViewModel
 class ArticlesViewModel @Inject constructor(
-    private val dataSource: QiitaDataSourceRemote,
-    private val scope: CoroutineScope
+    private val dataSource: QiitaDataSourceRemote
 ): ViewModel() {
 
     var viewState by mutableStateOf<ArticlesViewState>(
@@ -29,11 +28,9 @@ class ArticlesViewModel @Inject constructor(
 
     fun fetchArticles() {
         viewModelScope.launch {
-            val newData = scope.async {
-                return@async dataSource.getArticles(1, 3)
-            }.await()
+            val newData = dataSource.getArticles(1, 3)
             Log.d("hoge1", newData.toString())
-            viewState.copy(articles = newData)
+            viewState = viewState.copy(articles = newData)
         }
     }
 }

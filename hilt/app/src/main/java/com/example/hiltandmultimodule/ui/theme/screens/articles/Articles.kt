@@ -1,9 +1,12 @@
 package com.example.hiltandmultimodule.ui.theme.screens.articles
 
 import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -40,7 +43,12 @@ fun ArticlesContainer(viewModel: ArticlesViewModel) {
 fun ArticlesScreen(
     articles: List<ArticleLocalModel>
 ) {
-    Column {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp)
+    ) {
         articles.forEach { article ->
             Article(article = article)
         }
@@ -82,6 +90,32 @@ fun Article(
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun ArticlesPreview() {
+    HiltAndMultimoduleTheme {
+        ArticlesScreen(
+            articles = listOf(
+                ArticleLocalModel(
+                    title = "ほげタイトル",
+                    url = "https://qiita.com",
+                    likesCount = 3,
+                    user = UserLocalModel(
+                        name = "Ryomm"
+                    )
+                ),
+                ArticleLocalModel(
+                    title = "ほげタイトル",
+                    url = "https://qiita.com",
+                    likesCount = 3,
+                    user = UserLocalModel(
+                        name = "Ryomm"
+                    )
+                )
+            )
+        )
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun ArticlePreview() {

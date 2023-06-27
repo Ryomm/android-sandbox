@@ -33,7 +33,7 @@ class ApiModule {
         val contentType = "application/json".toMediaType()
 
         return Retrofit.Builder()
-            .baseUrl("https://qiita.com")
+            .baseUrl("https://qiita.com/")
             .addConverterFactory(converter.asConverterFactory(contentType))
             .client(client)
             .build()
