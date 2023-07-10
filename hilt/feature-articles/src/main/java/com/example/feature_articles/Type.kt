@@ -1,4 +1,4 @@
-package com.example.hiltandmultimodule.ui.theme
+package com.example.feature_articles
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

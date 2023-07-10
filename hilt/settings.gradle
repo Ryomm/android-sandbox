@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "HiltAndMultimodule"
 include ':app'
+include ':data'
+include ':feature-articles'
+include ':app-nia-catalog'

@@ -1,4 +1,4 @@
-package com.example.hiltandmultimodule.ui.theme
+package com.example.feature_articles
 
 import android.app.Activity
 import android.os.Build
