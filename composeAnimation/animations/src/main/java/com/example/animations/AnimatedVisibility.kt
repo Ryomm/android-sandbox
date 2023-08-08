@@ -4,10 +4,8 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Text
-import androidx.compose.ui.tooling.preview.Preview
 
 
 @Composable
@@ -16,9 +14,9 @@ fun AnimatedVisibilityAnimation(
 ) {
     AnimatedVisibility(
         visible = visible,
-        enter = fadeIn(initialAlpha = 0.4f),
+        enter = fadeIn(initialAlpha = 0.1f),
         exit = fadeOut(animationSpec = tween(durationMillis = 250))
     ) {
-        Text(text = "Edit")
+        Text(text = "AnimatedVisibility")
     }
 }
