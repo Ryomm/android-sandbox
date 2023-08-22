@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.TargetBasedAnimation
+import androidx.compose.animation.core.VectorConverter
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
@@ -21,10 +23,13 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.withFrameMillis
+import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
@@ -33,8 +38,10 @@ import com.example.animations.AnimateAsStateAnimation
 import com.example.animations.AnimateContentSizeAnimation
 import com.example.animations.AnimatedContentAnimation
 import com.example.animations.AnimatedVisibilityAnimation
+import com.example.animations.AnimationAPIAnimation
 import com.example.animations.CrossfadeAnimation
 import com.example.animations.RememberInfiniteTransitionAnimation
+import com.example.animations.Sample
 import com.example.animations.UpdateTransitionAnimation
 import com.example.composeanimation.ui.theme.ComposeAnimationTheme
 
@@ -78,8 +85,12 @@ class MainActivity : ComponentActivity() {
             val transition = updateTransition(state5)
 
             // animateAsState用
-            var state6 by remember { mutableStateOf(true) }
-            val size: Dp by animateDpAsState(targetValue = if(state6) 100.dp else 200.dp)
+            var state6 by remember { mutableStateOf(100) }
+            val size: Dp by animateDpAsState(targetValue = if(state6<400) 1.dp*(state6) else 100.dp)
+
+            var visible by remember {
+                mutableStateOf(true)
+            }
 
             ComposeAnimationTheme {
                 Surface(
@@ -123,9 +134,21 @@ class MainActivity : ComponentActivity() {
                             UpdateTransitionAnimation(transition = transition)
                         }
 
-                        FloatingActionButton(onClick = { state6 = !state6 }) {
+                        FloatingActionButton(onClick = { if(state6<400) state6 = state6+10 else state6=100 }) {
                             AnimateAsStateAnimation(size = size)
                         }
+
+                        Row {
+                            Spacer(modifier = Modifier.padding(4.dp))
+                            Button(
+                                onClick = {visible = !visible}
+                            ) {
+                                if(visible) Text(text = "TurnOff") else Text(text = "TurnOn")
+                            }
+                            Sample(visible = visible)
+                        }
+
+
                     }
                 }
             }

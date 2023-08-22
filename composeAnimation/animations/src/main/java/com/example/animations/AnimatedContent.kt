@@ -12,6 +12,7 @@ import androidx.compose.animation.with
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
+// AnimatedContentによるアニメーション
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AnimatedContentAnimation(

@@ -4,6 +4,7 @@ import androidx.compose.animation.Crossfade
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
+// Crossfadeによるアニメーション
 @Composable
 fun CrossfadeAnimation(
     state: Boolean

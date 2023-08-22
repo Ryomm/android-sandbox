@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+// AnimtateContentSizeによるアニメーション
 @Composable
 fun AnimateContentSizeAnimation(
     state: Boolean
